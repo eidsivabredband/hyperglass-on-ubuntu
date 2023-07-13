@@ -9,7 +9,7 @@ This guide is not a complete manual, but more a "how to get a basic system up-an
 
 ## Additional info
 
-Following the [Manual Installation Instructions](https://hyperglass.dev/docs/getting-started#manual-installation)https://hyperglass.dev/docs/getting-started#manual-installation
+Following the [Manual Installation Instructions](https://hyperglass.dev/docs/getting-started#manual-installation "https://hyperglass.dev/docs/getting-started#manual-installation")
 
 
  
