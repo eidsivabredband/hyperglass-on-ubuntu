@@ -69,9 +69,9 @@ Our purpose for installing Hyperglass, is to give a GUI- and also API -insight t
 
 ```mermaid
 flowchart TD
-  A(PE1) --- B(PE2)
+  A(PE1) ---- B(PE2)
   B --- C(PE3)
-  C --- D(PE4)
+  C ---- D(PE4)
   D --- A
   D --- E(PE5)
   E --- F[(Hyperglass)]
