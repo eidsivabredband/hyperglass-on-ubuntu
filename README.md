@@ -68,12 +68,20 @@ Also, since we use Hyperglass to lookup /32-routes, we have turned off [force_ci
 Our purpose for installing Hyperglass, is to give a GUI- and also API -insight to the bgp-labeled routes in all VRF's. In order to do so, we could add *all* PE's as devices, or make sure that all VRF's routing-tables are exposed on *one* PE.
 
 ```mermaid
-graph TD;
-  A[PE1]--B[PE2];
-  A[PE1]--D[PE4];
-  B--C[PE3];
+flowchart TD;
+  A(PE1);
+  B(PE2);
+  C(PE3);
+  D(PE4);
+  E(PE5);
+  F[(Hyperglass)];
+  A--B;
+  B--C;
   C--D;
-  E[PE5]--D;
+  D--A;
+  D--E;
+  E--F;
+
 ```
 
 
