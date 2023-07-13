@@ -17,7 +17,10 @@ Turning to [Manual Installation Instructions](https://hyperglass.dev/docs/gettin
 ```
 $ sudo apt install -y python3-dev python3-pip python3.9-distutils libjpeg-dev zlib1g-dev
 ```
-
-
+and
+```
+$ python3 --version
+Python 3.9.17
+```
 
  
