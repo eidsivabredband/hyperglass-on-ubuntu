@@ -69,14 +69,80 @@ Our purpose for installing Hyperglass, is to give a GUI- and also API -insight t
 
 ```mermaid
 flowchart TD
-  A(PE1) ---- B(PE2)
+  A(PE1) --- B(PE2)
   B --- C(PE3)
-  C ---- D(PE4)
+  C --- D(PE4)
   D --- A
   D --- E(PE5)
   E --- F[(Hyperglass)]
   
 ```
 
+In this example-setup, all VRF's are defined on PE5, so that PE5 attracts all routes for the defined VRF's. This does not make PE5 usable for `ping` or `traceroute`-commands, unless you also configure an IP-address for every VRF on PE5. If you are only looking to get insight into the routingtables, you can add the VRF's to PE5 in /etc/hyperglass/devices.yaml (placement of this file depends on how you installed Hyperglass), and add "dummy"-IP's to the VRF:
+
+```
+vrfs:
+  - &default #<-- anchor
+    name: global
+    default: true
+    display_name: your_global_rt
+  - &vrf1 #<-- anchor
+    name: vrf1 #<-- The VRF's name, as known by the device
+    default: false
+    display_name: your_choice
+    ipv4:
+      source_address: 10.10.10.10 #dummyIP
+      force_cidr: false
+    ipv6:
+      source_address: aaaa:bbbb:cccc::1 #dummyIP
+  - &vrf2 #<-- anchor
+    name: name_as_given_in_router_config
+    default: false
+    display_name: your_choice
+    ipv4:
+      source_address: 10.10.10.10 #dummyIP
+      force_cidr: false
+
+our_credentials:
+  - credential: &credential1 #<-- anchor
+      username: my_username
+      password: my_password           
+
+pe_routers:
+  - routers: &pe_routers #<-- anchor
+      network: 
+        name: your_choice
+        display_name: my_AS_number
+      credential: *credential1
+      port: 22
+      nos: must_specify
+      driver: netmiko #our choice
+      vrfs:
+        - <<: *default
+        - <<: *vrf1
+        - <<: *vrf2
+    
+
+routers:
+  - <<: *pe_routers
+    name: my_router
+    address: my_router_ip
+    vrfs:
+      - <<: *default
+        ipv4:
+          source_address: real_ip_address
+          force_cidr: false
+      - <<: *vrf1
+        ipv4:
+          source_address: dummy_IP
+          force_cidr: false #<-- needs to be specified here, since we use YAML Anchors and Aliases
+        ipv6: #<-- for this VRF, we also want to lookup IPv6-addresses
+          source_address: dummy_IP
+      - <<: *vrf2
+        ipv4:
+          source_address: dummy_IP
+          force_cidr: false #<-- needs to be specified here, since we use YAML Anchors and Aliases
+        
+```
 
 
