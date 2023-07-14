@@ -15,18 +15,18 @@ Remember to set Python3.9 as default.
 
 Turning to [Manual Installation Instructions](https://hyperglass.dev/docs/getting-started#manual-installation "https://hyperglass.dev/docs/getting-started#manual-installation"), a few changes is needed.
 
-```
+```console
 $ sudo apt install -y python3-dev python3-pip python3.9-distutils libjpeg-dev zlib1g-dev
 ```
 and
-```
+```console
 $ python3 --version
 Python 3.9.17
 ```
 
 For [Other Dependencies](https://hyperglass.dev/docs/getting-started/#other-dependencies "https://hyperglass.dev/docs/getting-started/#other-dependencies"), you need to make the keyring available to apt,
 
-```
+```console
 $ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 
 $ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
@@ -43,12 +43,12 @@ $ sudo systemctl restart redis-server
 ## Hyperglass installation
 
 After having run 
-```
+```console
 $ pip3 install hyperglass
 ```
 (which we did as "root", in lack of good reasons), you need to uninstall the cryptography3.4.x that Hyperglass relies on - that version did not work for us;
 
-```
+```console
 $ pip3 uninstall cryptography
 $ pip3 install cryptography>=3.5
 $ pip3 list | grep cryptography
@@ -80,7 +80,7 @@ flowchart TD
 
 In this example-setup, all VRF's are defined on PE5, so that PE5 attracts all routes for the defined VRF's. This does not make PE5 usable for `ping` or `traceroute`-commands, unless you also configure an IP-address for every VRF on PE5. If you are only looking to get insight into the routingtables, you can add the VRF's to PE5 in /etc/hyperglass/devices.yaml (placement of this file depends on how you installed Hyperglass), and add "dummy"-IP's to the VRF:
 
-```
+```yaml
 vrfs:
   - &default #<-- anchor
     name: global
@@ -142,7 +142,4 @@ routers:
         ipv4:
           source_address: dummy_IP
           force_cidr: false #<-- needs to be specified here, since we use YAML Anchors and Aliases
-        
 ```
-
-
