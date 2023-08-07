@@ -1,6 +1,7 @@
 # Installation
 
-Some tips and tricks on how to install [Hyperglass](https://hyperglass.dev/) on a clean (and **dedicated**)  [Ubuntu22.04LTS](https://ubuntu.com/server)
+Some tips and tricks on how to install [Hyperglass 1.0.4](https://hyperglass.dev/) on a clean (and **dedicated**)  [Ubuntu22.04LTS](https://ubuntu.com/server)
+Note: when [v2.0.0](https://github.com/thatmattlove/hyperglass/blob/main/README.md) arrives, this site might become irrelevante.
 
 
 ## Requirements
