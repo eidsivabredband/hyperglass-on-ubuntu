@@ -1,3 +1,7 @@
+<head>
+  <meta name="google-site-verification" content="0U0_bkoO4bJB9GLfTo3mVkXevTLr1xBkLEUgwU6L0M0" />
+</head>
+
 # Installation
 
 Some tips and tricks on how to install [Hyperglass 1.0.4](https://hyperglass.dev/) on a clean (and **dedicated**)  [Ubuntu22.04LTS](https://ubuntu.com/server)
