@@ -1,6 +1,8 @@
+<html>
 <head>
   <meta name="google-site-verification" content="0U0_bkoO4bJB9GLfTo3mVkXevTLr1xBkLEUgwU6L0M0" />
 </head>
+</html>
 
 # Installation
 
