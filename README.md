@@ -4,6 +4,8 @@
 
 </head>
 
+[REPO on github](https://github.com/eidsivabredband/hyperglass-on-ubuntu/blob/master/README.md) for Mermaid diagrams.
+
 
 # Installation
 
