@@ -1,6 +1,7 @@
-
+<html>
+<head>
 <meta name="google-site-verification" content="0U0_bkoO4bJB9GLfTo3mVkXevTLr1xBkLEUgwU6L0M0" />
-
+</head>
 <body>
  <pre><code class="language-mermaid">graph LR
 A--&gt;B
@@ -23,7 +24,7 @@ var config = {
 mermaid.initialize(config);
 window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
 </script>
-
+</html>
 
 # Installation
 
