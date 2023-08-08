@@ -1,14 +1,8 @@
-<html>
+
 <head>
 <meta name="google-site-verification" content="0U0_bkoO4bJB9GLfTo3mVkXevTLr1xBkLEUgwU6L0M0" />
 </head>
-<body>
 
-<div class="mermaid">graph LR
-A--&gt;B
-</div>
-	
-</body>
 <script>
 var config = {
     startOnLoad:true,
@@ -21,7 +15,7 @@ var config = {
 mermaid.initialize(config);
 window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
 </script>
-</html>
+
 
 # Installation
 
@@ -94,16 +88,14 @@ Also, since we use Hyperglass to lookup /32-routes, we have turned off [force_ci
 
 Our purpose for installing Hyperglass, is to give a GUI- and also API -insight to the bgp-labeled routes in all VRF's. In order to do so, we could add *all* PE's as devices, or make sure that all VRF's routing-tables are exposed on *one* PE.
 
-```mermaid
-flowchart TD
+<div class="mermaid">flowchart TD
   A(PE1) --- B(PE2)
   B --- C(PE3)
   C --- D(PE4)
   D --- A
   D --- E(PE5)
   E --- F[(Hyperglass)]
-  
-```
+</div>
 
 In this example-setup, all VRF's are defined on PE5, so that PE5 attracts all routes for the defined VRF's. This does not make PE5 usable for `ping` or `traceroute`-commands, unless you also configure an IP-address for every VRF on PE5. If you are only looking to get insight into the routingtables, you can add the VRF's to PE5 in /etc/hyperglass/devices.yaml (placement of this file depends on how you installed Hyperglass), and add "dummy"-IP's to the VRF:
 
