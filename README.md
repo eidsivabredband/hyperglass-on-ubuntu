@@ -27,6 +27,7 @@ mermaid.initialize(config);
 window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
 </script>
 
+<body>
 
 # Installation
 
@@ -173,3 +174,5 @@ routers:
           source_address: dummy_IP
           force_cidr: false #<-- needs to be specified here, since we use YAML Anchors and Aliases
 ```
+
+</body>
